@@ -35,9 +35,9 @@ Permitirá contar sus historias de vida o mostrar los cambios que le han traído
 
 ### **5.1 Baja Fidelidad**
 
- **Movil**
+ **Mobile**
 
-![Prototipo Blanco y Negro Movil](./img/prototipoBajaFidelidad0.1.jpeg)
+![Prototipo Blanco y Negro Mobile](./img/prototipoBajaFidelidad0.1.jpeg)
 
 **Desktop**
 
@@ -46,9 +46,9 @@ Permitirá contar sus historias de vida o mostrar los cambios que le han traído
 
 ### **5.2 Alta Fidelidad **
 
- **Movil**
+ **Mobile**
 
-![Prototipo Alta Fidelidad Movil](./img/PrototipoAltaFidelidad0.1.png)
+![Prototipo Alta Fidelidad Mobile](./img/PrototipoAltaFidelidad0.1.png)
 
 **Desktop**
 

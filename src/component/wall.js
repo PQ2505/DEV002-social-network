@@ -12,9 +12,11 @@ export const Wall = () => {
   const $divRightOrange = document.createElement('div');
   const $divImgWall = document.createElement('div');
   const $imgWall = document.createElement('img');
+  const $imgWallDos = document.createElement('img');
   const $divLeftOrange = document.createElement('div');
   const $divH3Post = document.createElement('div');
   const $h3Post = document.createElement('h3');
+  const $h3PostWall = document.createElement('h3');
   const $containerFormWall = document.createElement('div');
   const $formWall = document.createElement('form');
   const $inputPublication = document.createElement('textarea');
@@ -45,10 +47,12 @@ export const Wall = () => {
   $containerOrange.appendChild($divRightOrange);
   $divRightOrange.appendChild($divImgWall);
   $divImgWall.appendChild($imgWall);
+  $divImgWall.appendChild($imgWallDos);
 
   $containerOrange.appendChild($divLeftOrange);
   $divLeftOrange.appendChild($divH3Post);
   $divH3Post.appendChild($h3Post);
+  $divH3Post.appendChild($h3PostWall);
   $divLeftOrange.appendChild($containerFormWall);
   $containerFormWall.appendChild($formWall);
   $formWall.appendChild($inputPublication);
@@ -88,10 +92,17 @@ export const Wall = () => {
   $divImgWall.setAttribute('class', 'imagenWall');
   $imgWall.setAttribute('src', 'img/imgMuro.png');
   $imgWall.setAttribute('alt', 'Img Niña Muro');
+  $imgWall.setAttribute('class', 'imgWall');
+  $imgWallDos.setAttribute('src', 'img/imgMuroDos.png');
+  $imgWallDos.setAttribute('alt', 'Img Niña Muro');
+  $imgWallDos.setAttribute('class', 'imgWallDos');
 
   $divLeftOrange.setAttribute('class', 'leftOrange');
   $divH3Post.setAttribute('class', 'hPost');
   $h3Post.textContent = 'What was your change today?';
+  $h3Post.setAttribute('class', 'h3Post');
+  $h3PostWall.textContent = 'HELLO';
+  $h3PostWall.setAttribute('class', 'h3PostWall');
   $containerFormWall.setAttribute('class', 'ContFormWall');
   $formWall.setAttribute('class', 'formWall');
   $formWall.setAttribute('id', 'formWall');
@@ -100,6 +111,9 @@ export const Wall = () => {
   $inputPublication.setAttribute('name', 'inp_publication');
   $inputPublication.setAttribute('class', 'inp_publication');
   $inputPublication.setAttribute('id', 'inp_idPublication');
+  $inputPublication.setAttribute('placeholder', 'Escribe tu mensaje aquí');
+  $inputPublication.setAttribute('required', '');
+  $inputPublication.setAttribute('rows','6')
 
   $inputBtnWall.setAttribute('type', 'submit');
   $inputBtnWall.setAttribute('name', 'btn_send');

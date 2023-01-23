@@ -2,6 +2,7 @@
     --colorOrange: #FF9F00;
     --colorTurquois: #03A7BB;
     --colorDarkGrey: #C4C4C4;
+    --colorLightGrey: #efefef;
     --colorBlueLight: #A9D2F0;
     --colorOlive: #C5D2B0;
     --colorWhite: #FFF;
@@ -293,6 +294,9 @@ img {
 .imagenWall img{
     width: 90%;
 }
+.imgWallDos{
+    display: none;
+}
 .leftOrange{
     width: 65vw;
 }
@@ -307,6 +311,9 @@ img {
     margin-top: 7%;
     font-family: system-ui;
     line-height: 5vh;
+}
+.h3PostWall{
+    display: none;
 }
 .ContFormWall{
     height: 12vh;
@@ -563,4 +570,93 @@ img {
         left: 23%;
         top: 40px;
    }
+   /*------------------------CSS REGISTER----------------------------------*/
+.wallContainer{
+    display: none;
+}
+.sectionWall{
+    width: 100%;
+    display: flex;
+}
+.ContainerOrange{
+    width: 30%;
+    height: 100vh;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+.imgWall{
+    display: none;
+}
+.rightOrange{
+    width: 16vw;
+}
+.imagenWall{
+    justify-content: flex-start;
+}
+.imgWallDos{
+    display: block;
+    width: 83% !important;
+    padding-top: 8vh;
+}
+.leftOrange{
+    width: 100%;
+}
+.hPost{
+    width: 100%;
+    margin: 0;
+}
+.h3Post{
+    display: none;
+}
+.h3PostWall{
+    display: block;
+    font-size: 1.8rem !important;
+    text-align: center !important;
+    width: 100%;
+    padding-top: 9vh !important;
+}
+.ContFormWall{
+    position: absolute;
+    top: 24vh;
+    left: 53%;
+}
+.btn_send{
+    background-color: transparent;
+    color: var(--colorOrange);
+    font-weight: bold;
+    cursor: pointer;
+}
+.inp_publication{
+    height: max-content;
+}
+.inp_publication::placeholder{
+    padding-top: 0.4rem;
+}
+.formWall{
+    height: 21vh;
+    padding: 1rem;
+    background-color: var(--colorLightGrey);
+    border-radius: 20px;
+}
+.contPublic{
+    padding: 50vh 20% 0px 20%;
+}
+.div_publiU{
+    height: 35vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+.signOff{
+    display: none;
+}
+
 }

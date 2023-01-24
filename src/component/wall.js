@@ -1,4 +1,4 @@
-import { savePublic } from '../lib/firestore.js';
+import { savePublic, getPublication } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
@@ -88,9 +88,9 @@ export const Wall = () => {
   $divSaludo.setAttribute('class', 'Saludo');
   $imgLogoW.setAttribute('src', 'img/logoNewMe.png');
   $imgLogoW.setAttribute('alt', 'Logo NewMe');
-  $h2name.setAttribute('class', 'h2Name')
+  $h2name.setAttribute('class', 'h2Name');
   $h2name.textContent = 'Hello';
-  $h2WelcomeDesktop.setAttribute('class', 'WelcomeDesktop')
+  $h2WelcomeDesktop.setAttribute('class', 'WelcomeDesktop');
   $h2WelcomeDesktop.textContent = 'What was your change today?';
 
   $containerOrange.setAttribute('class', 'ContainerOrange');
@@ -123,8 +123,7 @@ export const Wall = () => {
   $inputPublication.setAttribute('id', 'inp_idPublication');
   $inputPublication.setAttribute('placeholder', 'Escribe tu mensaje aquí');
   $inputPublication.setAttribute('required', '');
-  $inputPublication.setAttribute('rows','6')
-
+  $inputPublication.setAttribute('rows', '6');
   $inputBtnWall.setAttribute('type', 'submit');
   $inputBtnWall.setAttribute('name', 'btn_send');
   $inputBtnWall.setAttribute('class', 'btn_send');
@@ -185,6 +184,8 @@ export const Wall = () => {
   $btnSingOff.addEventListener('click', () => {
     surfing('/');
   });
+
+  getPublication();
 
   return $sectionW;
 };

@@ -277,6 +277,9 @@ img {
     color: white;
     font-family: system-ui;
 }
+.WelcomeDesktop{
+    display: none;
+}
 .ContainerOrange{
     height: 39vh;
     width: 100vw;
@@ -297,6 +300,9 @@ img {
 .imgWallDos{
     display: none;
 }
+.imgManchaWall {
+    display: none;
+}
 .leftOrange{
     width: 65vw;
 }
@@ -309,7 +315,7 @@ img {
     font-size: 10vw;
     text-align: end;
     margin-top: 7%;
-    font-family: system-ui;
+    /* font-family: system-ui; */
     line-height: 5vh;
 }
 .h3PostWall{
@@ -571,12 +577,34 @@ img {
         top: 40px;
    }
    /*------------------------CSS REGISTER----------------------------------*/
-.wallContainer{
-    display: none;
-}
+/* .wallContainer{
+    display: flex;
+} */
 .sectionWall{
     width: 100%;
     display: flex;
+}
+.h2Name{
+    display: none;
+}
+.WelcomeDesktop {
+    display: block;
+    border-bottom: 1px solid white;
+}
+.Saludo{
+    width: 75vw;
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    left: 18rem;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.8rem;
+    font-family: 'Baloo 2', cursive;
+    flex-direction: row-reverse;
+}
+.Saludo img {
+    width: 10%;
 }
 .ContainerOrange{
     width: 30%;
@@ -598,6 +626,13 @@ img {
     width: 83% !important;
     padding-top: 8vh;
 }
+.imgManchaWall{
+    display: block;
+    position: absolute;
+    top: 49vh;
+    left: 9rem;
+    width: 12.9%;
+}
 .leftOrange{
     width: 100%;
 }
@@ -614,6 +649,7 @@ img {
     text-align: center !important;
     width: 100%;
     padding-top: 9vh !important;
+    font-family: 'Fredericka the Great', cursive;
 }
 .ContFormWall{
     position: absolute;
@@ -644,19 +680,13 @@ img {
 .div_publiU{
     height: 35vh;
 }
-
-
-
-
-
-
-
-
-
-
-
 .signOff{
-    display: none;
-}
+    position: absolute;
+    top: 87vh;
+    width: 90vw;
 
+   }
+.signOff img {
+    width: 8%;
+    }
 }

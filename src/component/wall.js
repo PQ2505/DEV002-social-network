@@ -8,11 +8,13 @@ export const Wall = () => {
   const $divSaludo = document.createElement('div');
   const $imgLogoW = document.createElement('img');
   const $h2name = document.createElement('h2');
+  const $h2WelcomeDesktop = document.createElement('h2');
   const $containerOrange = document.createElement('div'); // hijo 2
   const $divRightOrange = document.createElement('div');
   const $divImgWall = document.createElement('div');
   const $imgWall = document.createElement('img');
   const $imgWallDos = document.createElement('img');
+  const $imgMancha = document.createElement('img');
   const $divLeftOrange = document.createElement('div');
   const $divH3Post = document.createElement('div');
   const $h3Post = document.createElement('h3');
@@ -42,12 +44,14 @@ export const Wall = () => {
   $divContainerWall.appendChild($divSaludo);
   $divSaludo.appendChild($imgLogoW);
   $divSaludo.appendChild($h2name);
+  $divSaludo.appendChild($h2WelcomeDesktop);
 
   $sectionW.appendChild($containerOrange); // HIJO PRINCIPAL 2
   $containerOrange.appendChild($divRightOrange);
   $divRightOrange.appendChild($divImgWall);
   $divImgWall.appendChild($imgWall);
   $divImgWall.appendChild($imgWallDos);
+  $containerOrange.appendChild($imgMancha);
 
   $containerOrange.appendChild($divLeftOrange);
   $divLeftOrange.appendChild($divH3Post);
@@ -84,7 +88,10 @@ export const Wall = () => {
   $divSaludo.setAttribute('class', 'Saludo');
   $imgLogoW.setAttribute('src', 'img/logoNewMe.png');
   $imgLogoW.setAttribute('alt', 'Logo NewMe');
+  $h2name.setAttribute('class', 'h2Name')
   $h2name.textContent = 'Hello';
+  $h2WelcomeDesktop.setAttribute('class', 'WelcomeDesktop')
+  $h2WelcomeDesktop.textContent = 'What was your change today?';
 
   $containerOrange.setAttribute('class', 'ContainerOrange');
 
@@ -96,6 +103,9 @@ export const Wall = () => {
   $imgWallDos.setAttribute('src', 'img/imgMuroDos.png');
   $imgWallDos.setAttribute('alt', 'Img Niña Muro');
   $imgWallDos.setAttribute('class', 'imgWallDos');
+  $imgMancha.setAttribute('src', 'img/vector 7.png');
+  $imgMancha.setAttribute('alt', 'Img Mancha Muro');
+  $imgMancha.setAttribute('class', 'imgManchaWall');
 
   $divLeftOrange.setAttribute('class', 'leftOrange');
   $divH3Post.setAttribute('class', 'hPost');

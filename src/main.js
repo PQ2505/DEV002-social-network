@@ -1,4 +1,4 @@
-
+// eslint-disable-next-line import/no-cycle
 import { routes } from './routes/route.js';
 
 export const surfing = (pathname, archivoNuevo = routes) => {

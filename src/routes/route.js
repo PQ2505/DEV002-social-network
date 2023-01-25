@@ -11,8 +11,8 @@ import { Register } from '../component/register.js';
 import { Wall } from '../component/wall.js';
 
 export const routes = {
-    '/': Home, // objeto que contiene las direcciones
-    '/Login': Login,
-    '/Register': Register,
-    '/Wall': Wall,
-  };
+  '/': Home, // objeto que contiene las direcciones
+  '/Login': Login,
+  '/Register': Register,
+  '/Wall': Wall,
+};

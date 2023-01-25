@@ -18,32 +18,13 @@ import firebaseConfig from './firebaseconfig.js';
 // Servivcios Firebase
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 
-export const exitConsult = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    })
-    .catch((error) => error);
-};
-
-export const authGoogle = async () => {
-  try {
-    const userResult = await signInWithPopup(auth, provider);
-    return userResult;
-  } catch (error) {
-    return error;
-  }
-};
-
-export const createUser = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    })
-    .catch((error) => error);
-};
+export {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+}

@@ -27,4 +27,4 @@ export {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-}
+};

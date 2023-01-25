@@ -1,15 +1,13 @@
 import {
-    auth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    provider,
-    signInWithPopup,
-} 
-from './firebase.js'
-
-export const exitConsult = async (email, password) =>
-await signInWithEmailAndPassword(auth, email, password)
-    
+  auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  provider,
+  signInWithPopup,
+}
+  from './firebase.js';
+// eslint-disable-next-line max-len
+export const exitConsult = async (email, password) => signInWithEmailAndPassword(auth, email, password);
 export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);

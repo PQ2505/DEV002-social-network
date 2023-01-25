@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { exitConsult, authGoogle } from '../lib/firebase.js';
+import { exitConsult, authGoogle } from '../lib/auth.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 

@@ -1,4 +1,4 @@
-import { savePublic, getPublication } from '../lib/firestore.js';
+import { savePublic, getPublication, onSnapshot, db, collection, q } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
@@ -124,9 +124,8 @@ export const Wall = () => {
   $btnSingOff.addEventListener('click', () => {
     surfing('/');
   });
-
-  const publicacion = async () => {
-    const querySnapshot = await getPublication();
+  
+  onSnapshot(q, collection(db, 'Publication'), async (querySnapshot) => {querySnapshot = await getPublication();
     querySnapshot.forEach(docs => {
       const {coment} = docs.data();
       const $divPublicUser = document.createElement('div'); 
@@ -180,8 +179,11 @@ export const Wall = () => {
       $inputReactionDelete.setAttribute('value', 'Delete');
 
     });
-  }
-  publicacion();
+})
+
+  // const publicacion = async () => {
+  //     }
+  // publicacion();
 
   return $sectionW;
 };

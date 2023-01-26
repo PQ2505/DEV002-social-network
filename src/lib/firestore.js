@@ -19,11 +19,5 @@ export const savePublic = async (coment) => {
     console.log(error);
   }
 };
-
-export const getPublication = async () => {
-  const querySnapshot = await getDocs(collection(db, 'Publication'));
-  querySnapshot.forEach((docs) => {
-    const { coment } = docs.data();
-    console.log(coment);
-  });
-};
+// eslint-disable-next-line max-len
+export const getPublication = () => getDocs(collection(db, 'Publication'));

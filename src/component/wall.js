@@ -185,7 +185,11 @@ export const Wall = () => {
     surfing('/');
   });
 
-  getPublication();
+  $containerPublication.addEventListener('DOMContentLoaded', async () => {
+    const querySnapshot = await getPublication();
+    console.log(querySnapshot);
+    console.log('renderizando');
+  });
 
   return $sectionW;
 };

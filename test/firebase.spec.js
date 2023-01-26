@@ -1,7 +1,7 @@
 // importamos la funcion que vamos a testear
 // eslint-disable-next-line import/no-unresolved
 import expectExport from 'expect';
-import { exitConsult, Sum } from '../src/lib/auth.js';
+import { exitConsult } from '../src/lib/auth.js';
 // eslint-disable-next-line import/no-unresolved
  import { auth, signInWithEmailAndPassword }   from '../src/lib/firebase.js';
 

@@ -1,4 +1,5 @@
 import {
+  app,
   auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -9,11 +10,15 @@ import {
 // eslint-disable-next-line max-len
 export const exitConsult = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    let respuestaLogin = await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     throw error.message;
   }
 };
+
+export const Sum =  async (a, b) =>  {
+  return  a+b;
+}
 
 export const authGoogle = async () => {
   try {

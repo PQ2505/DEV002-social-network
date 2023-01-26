@@ -9,7 +9,7 @@ import {
 // eslint-disable-next-line max-len
 export const exitConsult = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    return await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     throw error.message;
   }

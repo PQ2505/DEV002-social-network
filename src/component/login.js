@@ -114,15 +114,24 @@ export const Login = () => {
   <input type='button' class='btn_signUp' id='btn_signUpId' value='SIGN UP'>
   `;
 
-  $divForm.addEventListener('submit', (e) => {
+  $divForm.addEventListener('submit',  async (e) => {
+  try{
     e.preventDefault();
-    exitConsult($inputEmail.value, $inputPassword.value);
-    surfing('/Wall');
+    await exitConsult($inputEmail.value, $inputPassword.value);
+
+     surfing('/Wall');
+  }catch(error){
+    console.log(error.code, error.message);
+  }
   });
 
   $inputBtnGoogle.addEventListener('click', async () => {
+    try{
     await authGoogle();
     surfing('/Wall');
+    }catch(error){
+      console.log(error);
+    }
   });
 
   $pSignUp.addEventListener('click', () => {

@@ -28,6 +28,5 @@ export const getPublication = () => getDocs(collection(db, 'Publication'));
 export const unsub = () =>
 console.log('obteniendo datos');
 
+export const q = query(collection(db, 'Publication'), orderBy('','desc'));
 export {onSnapshot, db, collection}
-
-export const q = query(collection(db, 'Publication'), orderBy('savePublic','desc'));

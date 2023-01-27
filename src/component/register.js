@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
-import { createUser } from '../lib/auth.js';
+import { createUser, authGoogle } from '../lib/auth.js';
 
 export const Register = () => {
   const $sectionF = document.createElement('section');
@@ -126,12 +126,25 @@ export const Register = () => {
   $btnBack.addEventListener('click', () => {
     surfing('/Login');
   });
-
-  $divFormF.addEventListener('submit', (e) => {
-    e.preventDefault();
-    createUser($inputEmailF.value, $inputPasswordF.value);
-    surfing('/Wall');
+  
+  $inputBtnGoogleF.addEventListener('click', async () => {
+    try{
+      await authGoogle();
+      surfing('/Wall');
+    }catch(error){
+      console.log(error);
+    }
   });
 
+  $divFormF.addEventListener('submit', async (e) => {
+   try{
+    e.preventDefault();
+    await createUser($inputEmailF.value, $inputPasswordF.value);
+    surfing('/Login');
+   }catch(error){
+    console.log(error);
+   }
+  });
+  
   return $sectionF;
 };

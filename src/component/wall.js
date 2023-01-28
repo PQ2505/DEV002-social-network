@@ -1,4 +1,4 @@
-import { savePublic, getPublication, onSnapshot, db, collection, q } from '../lib/firestore.js';
+import { savePublic, getPublication, unsub } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
@@ -23,7 +23,7 @@ export const Wall = () => {
   const $formWall = document.createElement('form');
   const $inputPublication = document.createElement('textarea');
   const $inputBtnWall = document.createElement('input');
-  const $containerPublication = document.createElement('div'); // hijo de section y padre de dos 
+  const $containerPublication = document.createElement('div'); // hijo de section y padre de dos
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
@@ -124,20 +124,21 @@ export const Wall = () => {
   $btnSingOff.addEventListener('click', () => {
     surfing('/');
   });
-  
-  onSnapshot(q, collection(db, 'Publication'), async (querySnapshot) => {querySnapshot = await getPublication();
-    querySnapshot.forEach(docs => {
-      const {coment} = docs.data();
-      const $divPublicUser = document.createElement('div'); 
-      const $divPublicU = document.createElement('div'); 
+
+  unsub(async () => {
+    const querySnapshot = await getPublication();
+    querySnapshot.forEach((docs) => {
+      const { coment } = docs.data();
+      const $divPublicUser = document.createElement('div');
+      const $divPublicU = document.createElement('div');
       const $pComent = document.createElement('p');
-      const $divReactions = document.createElement('div'); 
-      const $divReactionLikes = document.createElement('div'); 
+      const $divReactions = document.createElement('div');
+      const $divReactionLikes = document.createElement('div');
       const $iHeart = document.createElement('i');
       const $inputReactionLikes = document.createElement('input');
-      const $divReactionEdit = document.createElement('div'); 
+      const $divReactionEdit = document.createElement('div');
       const $inputReactionEdit = document.createElement('input');
-      const $divReactionDelete = document.createElement('div'); 
+      const $divReactionDelete = document.createElement('div');
       const $inputReactionDelete = document.createElement('input');
 
       $containerPublication.appendChild($divPublicUser);
@@ -146,9 +147,9 @@ export const Wall = () => {
       $divPublicU.appendChild($pComent);
       $divReactions.appendChild($divReactionLikes);
       $divReactionLikes.appendChild($iHeart);
-      $divReactionLikes.appendChild($inputReactionLikes);    
+      $divReactionLikes.appendChild($inputReactionLikes);
       $divReactions.appendChild($divReactionEdit);
-      $divReactionEdit.appendChild($inputReactionEdit);    
+      $divReactionEdit.appendChild($inputReactionEdit);
       $divReactions.appendChild($divReactionDelete);
       $divReactionDelete.appendChild($inputReactionDelete);
 
@@ -159,7 +160,7 @@ export const Wall = () => {
       $pComent.textContent = coment;
       $divReactions.setAttribute('class', 'reactions');
       $divReactionLikes.setAttribute('class', 'reactionsLikes');
-      $iHeart.setAttribute('class', 'fa-regular fa-heart')
+      $iHeart.setAttribute('class', 'fa-regular fa-heart');
       $inputReactionLikes.setAttribute('type', 'submit');
       $inputReactionLikes.setAttribute('name', 'inp_reaction');
       $inputReactionLikes.setAttribute('class', 'inp_reaction');
@@ -177,9 +178,8 @@ export const Wall = () => {
       $inputReactionDelete.setAttribute('class', 'inp_reactionDelete');
       $inputReactionDelete.setAttribute('id', 'inp_idReactionDelete');
       $inputReactionDelete.setAttribute('value', 'Delete');
-
     });
-})
+  });
 
   // const publicacion = async () => {
   //     }

@@ -126,25 +126,25 @@ export const Register = () => {
   $btnBack.addEventListener('click', () => {
     surfing('/Login');
   });
-  
+
   $inputBtnGoogleF.addEventListener('click', async () => {
-    try{
+    try {
       await authGoogle();
       surfing('/Wall');
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   });
 
   $divFormF.addEventListener('submit', async (e) => {
-   try{
-    e.preventDefault();
-    await createUser($inputEmailF.value, $inputPasswordF.value);
-    surfing('/Login');
-   }catch(error){
-    console.log(error);
-   }
+    try {
+      e.preventDefault();
+      await createUser($inputEmailF.value, $inputPasswordF.value);
+      surfing('/Login');
+    } catch (error) {
+      console.log(error);
+    }
   });
-  
+
   return $sectionF;
 };

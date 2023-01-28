@@ -5,8 +5,6 @@ import {
   addDoc,
   getDocs,
   onSnapshot,
-  query,
-  orderBy,
 }
 // eslint-disable-next-line import/no-unresolved
   from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
@@ -25,8 +23,6 @@ export const savePublic = async (coment) => {
 // eslint-disable-next-line max-len
 export const getPublication = () => getDocs(collection(db, 'Publication'));
 
-export const unsub = () =>
-console.log('obteniendo datos');
+export const unsub = (callBack) => onSnapshot(collection(db, 'Publication'), callBack);
 
-export const q = query(collection(db, 'Publication'), orderBy('','desc'));
-export {onSnapshot, db, collection}
+// export const q = query(collection(db, 'Publication'), orderBy('','desc'));

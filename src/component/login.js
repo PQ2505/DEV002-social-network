@@ -35,7 +35,6 @@ export const Login = () => {
     .appendChild($figureLogin)
     .appendChild($imgLogo);
   $divLogo.appendChild($containerICoulLogin).appendChild($iCouldLogin);
-
   $section.appendChild($divContainerF);
   $divContainerF.appendChild($divContainerForm);
   $divContainerForm.appendChild($divForm);
@@ -114,22 +113,22 @@ export const Login = () => {
   <input type='button' class='btn_signUp' id='btn_signUpId' value='SIGN UP'>
   `;
 
-  $divForm.addEventListener('submit',  async (e) => {
-  try{
-    e.preventDefault();
-    await exitConsult($inputEmail.value, $inputPassword.value);
+  $divForm.addEventListener('submit', async (e) => {
+    try {
+      e.preventDefault();
+      await exitConsult($inputEmail.value, $inputPassword.value);
 
-     surfing('/Wall');
-  }catch(error){
-    console.log(error.code, error.message);
-  }
+      surfing('/Wall');
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
   });
 
   $inputBtnGoogle.addEventListener('click', async () => {
-    try{
-    await authGoogle();
-    surfing('/Wall');
-    }catch(error){
+    try {
+      await authGoogle();
+      surfing('/Wall');
+    } catch (error) {
       console.log(error);
     }
   });

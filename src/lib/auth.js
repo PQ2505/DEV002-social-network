@@ -7,10 +7,10 @@ import {
 }
   from './firebase.js';
 // eslint-disable-next-line max-len
-export const exitConsult =  (email, password) =>  signInWithEmailAndPassword(auth, email, password);
+const exitConsult = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-export const authGoogle =  () => signInWithPopup(auth, provider);
+const authGoogle = () => signInWithPopup(auth, provider);
 
-export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-  
-  
+const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export { exitConsult, authGoogle, createUser };

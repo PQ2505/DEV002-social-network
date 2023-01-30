@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
 // eslint-disable-next-line import/no-unresolved
 import {
-  auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup,
-} from '../src/lib/firebase.js';
+  authGoogle, createUser, exitConsult,
+} from '../src/lib/auth.js';
 
 // primer mock de autenticacion
 jest.mock('../src/lib/firebase.js', () => ({ // aqui se accede a la libreria "JEST"
@@ -38,7 +38,7 @@ describe('Se testea la función Auth', () => {
     try {
       const email = 'correonoexistente@gmail.com';
       const password = '123';
-      await signInWithEmailAndPassword(auth, email, password);
+      await exitConsult(email, password);
     } catch (error) {
       expect(error.message).toBe('Correo inválido');
     }
@@ -47,7 +47,7 @@ describe('Se testea la función Auth', () => {
     try {
       const email = 'correonoexistente@gmail.com';
       const password = '123';
-      await signInWithEmailAndPassword(auth, email, password);
+      await exitConsult(email, password);
     } catch (error) {
       expect(error.message).toBe('Contraseña inválida');
     }
@@ -56,7 +56,7 @@ describe('Se testea la función Auth', () => {
     try {
       const email = 'correonoexistente@gmail.com';
       const password = '123';
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUser(email, password);
     } catch (error) {
       expect(error.message).toBe('Correo inválido');
     }
@@ -65,7 +65,7 @@ describe('Se testea la función Auth', () => {
     try {
       const email = 'correonoexistente@gmail.com';
       const password = '123';
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUser(email, password);
     } catch (error) {
       expect(error.message).toBe('Contraseña incorrecta');
     }
@@ -73,7 +73,7 @@ describe('Se testea la función Auth', () => {
   it('signInWithPopup devuelve un correo válido', async () => {
     try {
       const email = '2020sandrarios@gamil.com';
-      await signInWithPopup(email);
+      await authGoogle(email);
     } catch (error) {
       expect(error.message).toBe('Correo válido');
     }

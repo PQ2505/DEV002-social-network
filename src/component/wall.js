@@ -1,4 +1,4 @@
-import { savePublic, getPublication, unsub } from '../lib/firestore.js';
+import { savePublic, getPublication, unsub, deleteComent } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
@@ -125,8 +125,9 @@ export const Wall = () => {
     surfing('/');
   });
 
-  unsub(async () => {
-    const querySnapshot = await getPublication();
+  unsub(async (querySnapshot) => {
+    // const querySnapshot = await getPublication();
+
     querySnapshot.forEach((docs) => {
       const { coment } = docs.data();
       const $divPublicUser = document.createElement('div');
@@ -177,13 +178,21 @@ export const Wall = () => {
       $inputReactionDelete.setAttribute('name', 'inp_reactionDelete');
       $inputReactionDelete.setAttribute('class', 'inp_reactionDelete');
       $inputReactionDelete.setAttribute('id', 'inp_idReactionDelete');
+      $inputReactionDelete.setAttribute('data-id', docs.id);
       $inputReactionDelete.setAttribute('value', 'Delete');
-    });
-  });
 
-  // const publicacion = async () => {
-  //     }
-  // publicacion();
+  //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
+  //     deleteComent(id);
+  // })
+    });
+
+    const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
+    btnDelete.forEach(btn => {
+      btn.addEventListener('click', ({target:{dataset:{id}}}) => {
+        deleteComent(id);
+      })
+    })
+  });
 
   return $sectionW;
 };

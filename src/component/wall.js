@@ -3,7 +3,7 @@ import {
 } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
-import { signOff } from '../lib/auth.js';
+import { signOff, validatorUser } from '../lib/auth.js';
 
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
@@ -30,7 +30,7 @@ export const Wall = () => {
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
-  let currentUser = null
+  const currentUser = null;
 
   // ---- HTML Semantico ----//
 
@@ -126,10 +126,13 @@ export const Wall = () => {
   });
 
   $btnSingOff.addEventListener('click', async () => {
-    if (!currentUser){
-      return surfing('/Login');
-    }
     await signOff();
+    validatorUser((currentUser) => {
+      if (!currentUser) {
+        console.log(currentUser);
+        return surfing('/Login');
+      }
+    });
     surfing('/');
   });
 

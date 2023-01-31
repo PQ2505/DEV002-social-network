@@ -5,18 +5,20 @@ import {
   provider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut
+  signOut,
 }
   from './firebase.js';
 // eslint-disable-next-line max-len
-const exitConsult = async (email, password) => signInWithEmailAndPassword (auth, email, password);
+const exitConsult = async (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 const authGoogle = () => signInWithPopup(auth, provider);
 
 const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-const signOff = () => signOut (auth);
+const signOff = () => signOut(auth);
 
-const validatorUser = (callback) => onAuthStateChanged (auth, callback);
+const validatorUser = (callback) => onAuthStateChanged(auth, callback);
 
-export { exitConsult, authGoogle, createUser, signOff, validatorUser };
+export {
+  exitConsult, authGoogle, createUser, signOff, validatorUser,
+};

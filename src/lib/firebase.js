@@ -10,7 +10,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut
+  signOut,
 }
 // eslint-disable-next-line import/no-unresolved
   from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
@@ -30,5 +30,5 @@ export {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut
+  signOut,
 };

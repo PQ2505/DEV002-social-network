@@ -358,6 +358,12 @@ img {
     background-color: var(--colorDarkGrey);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    font-size: x-large;
+    font-family: system-ui;
+    padding: 1rem 2rem;
+}
+.div_publiU p{
+    margin: 0;
 }
 .reactions{
     background-color: var(--colorWhite);
@@ -679,14 +685,17 @@ img {
 }
 .div_publiU{
     height: 35vh;
+    padding: 1rem 2rem;
+    font-size: x-large;
+    font-family: system-ui;
 }
 .signOff{
     position: absolute;
     top: 87vh;
-    width: 90vw;
+    width: 37vw;
 
    }
 .signOff img {
-    width: 8%;
+    width: 22%;
     }
 }

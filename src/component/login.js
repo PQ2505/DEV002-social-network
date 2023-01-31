@@ -1,9 +1,8 @@
 // eslint-disable-next-line import/no-cycle
-import { exitConsult, authGoogle } from '../lib/auth.js';
+import { exitConsult, authGoogle, validatorUser } from '../lib/auth.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
-import { validatorUser } from '../lib/auth.js'
- 
+
 export const Login = () => {
   const $section = document.createElement('section');
   const $divLogo = document.createElement('div');
@@ -28,7 +27,7 @@ export const Login = () => {
   const $figureGoogle = document.createElement('figure');
   const $imgGoogle = document.createElement('img');
   const $pSignUp = document.createElement('p');
- 
+
   // agregamos HTML semantico------------------------------------
 
   $section
@@ -117,20 +116,17 @@ export const Login = () => {
   $divForm.addEventListener('submit', async (e) => {
     try {
       e.preventDefault();
-      validatorUser( async () => {
-        const currentUser = await exitConsult($inputEmail.value, $inputPassword.value);
-        if (!currentUser.user){
-          surfing('/Login')
-        } else {
-          console.log('Estoy resgitrado')
-        }
-      })
+      await exitConsult($inputEmail.value, $inputPassword.value);
+      validatorUser((currentUser) => {
+        console.log(currentUser);
+      });
+
       surfing('/Wall');
     } catch (error) {
       console.log(error.code, error.message);
     }
   });
-  
+
   $inputBtnGoogle.addEventListener('click', async () => {
     try {
       await authGoogle();

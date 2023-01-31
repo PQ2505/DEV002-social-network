@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   provider,
   signInWithPopup,
+  signOut
 }
   from './firebase.js';
 // eslint-disable-next-line max-len
@@ -13,4 +14,6 @@ const authGoogle = () => signInWithPopup(auth, provider);
 
 const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-export { exitConsult, authGoogle, createUser };
+const signOff = () => signOut (auth);
+
+export { exitConsult, authGoogle, createUser, signOff };

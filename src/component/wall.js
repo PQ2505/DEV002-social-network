@@ -1,6 +1,9 @@
-import { savePublic, getPublication, unsub, deleteComent } from '../lib/firestore.js';
+import {
+  savePublic, unsub, deleteComent,
+} from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
+
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
   const $divContainerWall = document.createElement('div'); // hijo 1
@@ -26,7 +29,7 @@ export const Wall = () => {
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
-  
+
   // ---- HTML Semantico ----//
 
   $sectionW.appendChild($divContainerWall); // HIJO PRINCIPAL 1
@@ -123,9 +126,7 @@ export const Wall = () => {
   $btnSingOff.addEventListener('click', () => {
     surfing('/');
   });
- unsub((querySnapshot) => {
-    
-
+  unsub((querySnapshot) => {
     querySnapshot.forEach((docs) => {
       const { coment } = docs.data();
       const $divPublicUser = document.createElement('div');
@@ -179,20 +180,18 @@ export const Wall = () => {
       $inputReactionDelete.setAttribute('data-id', docs.id);
       $inputReactionDelete.setAttribute('value', 'Delete');
 
-  //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
-  //     deleteComent(id);
-  // })
-});
+      //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
+      //     deleteComent(id);
+      // })
+    });
 
     const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
-    btnDelete.forEach(btn => {
+    btnDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-    
-        deleteComent(e.target.dataset.id)
-        console.log('elimine.')
-      })
-
-    });  
+        deleteComent(e.target.dataset.id);
+        console.log('elimine.');
+      });
+    });
   });
 
   return $sectionW;

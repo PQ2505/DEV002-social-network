@@ -27,6 +27,6 @@ export const getPublication = () => getDocs(collection(db, 'Publication'));
 
 export const unsub = (callBack) => onSnapshot(collection(db, 'Publication'), callBack);
 
-export const deleteComent = (id) =>deleteDoc(doc(db, "Publication", id));
+export const deleteComent = (id) => deleteDoc(doc(db, 'Publication', id));
 
 // export const q = query(collection(db, 'Publication'), orderBy('','desc'));

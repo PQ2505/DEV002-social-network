@@ -9,6 +9,8 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
+  signOut
 }
 // eslint-disable-next-line import/no-unresolved
   from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
@@ -27,4 +29,6 @@ export {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
+  signOut
 };

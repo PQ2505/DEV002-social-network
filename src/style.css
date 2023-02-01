@@ -352,6 +352,7 @@ img {
 }
 .publicUser{
     width: 100%;
+    padding-bottom: 1rem;
 }
 .div_publiU{
     height: 20vh;
@@ -409,7 +410,7 @@ img {
 
 @media screen and (min-width: 500px) {
     main {
-        height: 100vh;
+        /* height: 100vh; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -613,10 +614,11 @@ img {
     width: 10%;
 }
 .ContainerOrange{
-    width: 30%;
+    width: 19%;
     height: 100vh;
     flex-direction: column-reverse;
     justify-content: flex-end;
+    position: fixed;
 }
 .imgWall{
     display: none;
@@ -635,9 +637,9 @@ img {
 .imgManchaWall{
     display: block;
     position: absolute;
-    top: 49vh;
-    left: 9rem;
-    width: 12.9%;
+    top: 62vh;
+    left: 11rem;
+    width: 40.5%;
 }
 .leftOrange{
     width: 100%;
@@ -679,9 +681,16 @@ img {
     padding: 1rem;
     background-color: var(--colorLightGrey);
     border-radius: 20px;
+    position: absolute;
+    left: 12vw;
+    top:22vh
 }
 .contPublic{
-    padding: 50vh 20% 0px 20%;
+    padding: 25vh 14% 0px 43%;
+}
+.publicUser{
+    width: 100%;
+    padding-bottom: 3rem;
 }
 .div_publiU{
     height: 35vh;
@@ -690,12 +699,12 @@ img {
     font-family: system-ui;
 }
 .signOff{
-    position: absolute;
+    position: fixed;
     top: 87vh;
-    width: 37vw;
+    width: 16vw;
 
    }
 .signOff img {
-    width: 22%;
+    width: 53%;
     }
 }

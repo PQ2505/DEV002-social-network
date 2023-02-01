@@ -463,6 +463,7 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: 12vh;
     }
 
     .home .logo_container {
@@ -481,7 +482,8 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
-        position: absolute
+        position: absolute;
+        top: 10vh;
     }
 
      .logoNewM{

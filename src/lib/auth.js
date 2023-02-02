@@ -4,7 +4,6 @@ import {
   createUserWithEmailAndPassword,
   provider,
   signInWithPopup,
-  onAuthStateChanged,
   signOut,
 }
   from './firebase.js';
@@ -17,8 +16,9 @@ const createUser = (email, password) => createUserWithEmailAndPassword(auth, ema
 
 const signOff = () => signOut(auth);
 
-const validatorUser = (callback) => onAuthStateChanged(auth, callback);
+const user = () =>auth.currentUser;
+
 
 export {
-  exitConsult, authGoogle, createUser, signOff, validatorUser,
+  exitConsult, authGoogle, createUser, signOff, user
 };

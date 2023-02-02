@@ -1,9 +1,9 @@
 import {
-  savePublic, unsub, deleteComent, updatePost,
+  savePublic, unsub, deleteComent, updatePost, like, disLike
 } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
-import { signOff, validatorUser } from '../lib/auth.js';
+import { signOff, user } from '../lib/auth.js';
 
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
@@ -30,8 +30,7 @@ export const Wall = () => {
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
-  const currentUser = null;
-
+  // console.log(user);
   // ---- HTML Semantico ----//
 
   $sectionW.appendChild($divContainerWall); // HIJO PRINCIPAL 1
@@ -119,20 +118,22 @@ export const Wall = () => {
   $imgWallCat.setAttribute('src', 'img/gato.png');
   $imgWallCat.setAttribute('alt', 'wallCat');
 
+  let arrayLikes = ['1'];
+
   $formWall.addEventListener('submit', (e) => {
     e.preventDefault();
-    savePublic($inputPublication.value);
-    $formWall.reset();
-  });
+   
+  //   array.push('uno');
+  //   savePublic($inputPublication.value, 'uiprueba', array);
+  //   $formWall.reset();
+  // });
+
+  savePublic('1',$inputPublication.value,'1');
+  $formWall.reset();
+});
 
   $btnSingOff.addEventListener('click', async () => {
     await signOff();
-    validatorUser((currentUser) => {
-      if (!currentUser) {
-        console.log(currentUser);
-        return surfing('/Login');
-      }
-    });
     surfing('/');
   });
 
@@ -200,20 +201,18 @@ export const Wall = () => {
       //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
       //     deleteComent(id);
       // })
-      $inputReactionLikes.addEventListener('click', () => {
-        if ($inputReactionLikes) {
-          $pCountLikes.textContent = countLike + 1;
-          $iHeart.classList.toggle('likesHeart');
-        } else if (countLike === 1) {
-          $pCountLikes.textContent = countLike - 1;
-          $iHeart.classList.toggle('likesHeart');
-        } else {
-          console.log('ni sume, ni reste');
-        }
+      const userId = user().uid;
+      console.log(userId);
+      const btnLike = $containerPublication.querySelectorAll('inp_reaction');
+      btnLike.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          like(e.target.dataset.id, arrayLikes, userId);
+        });
       });
 
       const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
       btnDelete.forEach((btn) => {
+
         btn.addEventListener('click', (e) => {
           deleteComent(e.target.dataset.id);
         });

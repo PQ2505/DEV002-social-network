@@ -222,7 +222,6 @@ export const Wall = () => {
       const btnEdit = $containerPublication.querySelectorAll('.inp_reactionEdit');
       btnEdit.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          console.log(e.target.dataset);
           const editComent = prompt('Update your coment:');
           updatePost(e.target.dataset.id, { coment: editComent });
         });

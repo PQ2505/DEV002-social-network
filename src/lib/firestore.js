@@ -6,6 +6,7 @@ import {
   getDocs,
   onSnapshot,
   deleteDoc,
+  updateDoc,
   doc,
 }
 // eslint-disable-next-line import/no-unresolved
@@ -28,5 +29,9 @@ export const getPublication = () => getDocs(collection(db, 'Publication'));
 export const unsub = (callBack) => onSnapshot(collection(db, 'Publication'), callBack);
 
 export const deleteComent = (id) => deleteDoc(doc(db, 'Publication', id));
+
+export const updatePost = (id, nuevoValorPost) => updateDoc(doc(db, 'Publication', id), nuevoValorPost);
+
+// export const updatePost = (id) => updateDoc(doc(db, 'Publication', id));
 
 // export const q = query(collection(db, 'Publication'), orderBy('','desc'));

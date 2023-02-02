@@ -700,6 +700,9 @@ img {
     font-size: x-large;
     font-family: system-ui;
 }
+.likesHeart {
+   color: red;
+}
 .signOff{
     position: fixed;
     top: 87vh;

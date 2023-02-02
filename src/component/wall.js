@@ -1,5 +1,5 @@
 import {
-  savePublic, unsub, deleteComent,
+  savePublic, unsub, deleteComent, updatePost,
 } from '../lib/firestore.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
@@ -146,11 +146,13 @@ export const Wall = () => {
       const $divReactions = document.createElement('div');
       const $divReactionLikes = document.createElement('div');
       const $iHeart = document.createElement('i');
+      const $pCountLikes = document.createElement('p');
       const $inputReactionLikes = document.createElement('input');
       const $divReactionEdit = document.createElement('div');
       const $inputReactionEdit = document.createElement('input');
       const $divReactionDelete = document.createElement('div');
       const $inputReactionDelete = document.createElement('input');
+      const countLike = 0;
 
       $containerPublication.appendChild($divPublicUser);
       $divPublicUser.appendChild($divPublicU);
@@ -158,6 +160,7 @@ export const Wall = () => {
       $divPublicU.appendChild($pComent);
       $divReactions.appendChild($divReactionLikes);
       $divReactionLikes.appendChild($iHeart);
+      $divReactionLikes.appendChild($pCountLikes);
       $divReactionLikes.appendChild($inputReactionLikes);
       $divReactions.appendChild($divReactionEdit);
       $divReactionEdit.appendChild($inputReactionEdit);
@@ -168,7 +171,9 @@ export const Wall = () => {
       $divPublicUser.setAttribute('class', 'publicUser');
       $divPublicU.setAttribute('class', 'div_publiU');
       $divPublicU.setAttribute('id', 'div_idPubliU');
+
       $pComent.textContent = coment;
+      // $pContent.textContent ('diseable', 'true')
       $divReactions.setAttribute('class', 'reactions');
       $divReactionLikes.setAttribute('class', 'reactionsLikes');
       $iHeart.setAttribute('class', 'fa-regular fa-heart');
@@ -182,6 +187,7 @@ export const Wall = () => {
       $inputReactionEdit.setAttribute('name', 'inp_reactionEdit');
       $inputReactionEdit.setAttribute('class', 'inp_reactionEdit');
       $inputReactionEdit.setAttribute('id', 'inp_idReactionEdit');
+      $inputReactionEdit.setAttribute('data-id', docs.id);
       $inputReactionEdit.setAttribute('value', 'Edit');
       $divReactionDelete.setAttribute('class', 'reactionDelete');
       $inputReactionDelete.setAttribute('type', 'submit');
@@ -194,13 +200,32 @@ export const Wall = () => {
       //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
       //     deleteComent(id);
       // })
-    });
+      $inputReactionLikes.addEventListener('click', () => {
+        if ($inputReactionLikes) {
+          $pCountLikes.textContent = countLike + 1;
+          $iHeart.classList.toggle('likesHeart');
+        } else if (countLike === 1) {
+          $pCountLikes.textContent = countLike - 1;
+          $iHeart.classList.toggle('likesHeart');
+        } else {
+          console.log('ni sume, ni reste');
+        }
+      });
 
-    const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
-    btnDelete.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        deleteComent(e.target.dataset.id);
-        console.log('elimine.');
+      const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          deleteComent(e.target.dataset.id);
+        });
+      });
+
+      const btnEdit = $containerPublication.querySelectorAll('.inp_reactionEdit');
+      btnEdit.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          console.log(e.target.dataset);
+          const editComent = prompt('Update your coment:');
+          updatePost(e.target.dataset.id, { coment: editComent });
+        });
       });
     });
   });

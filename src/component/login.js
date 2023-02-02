@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { exitConsult, authGoogle, validatorUser } from '../lib/auth.js';
+import { exitConsult, authGoogle } from '../lib/auth.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
@@ -117,9 +117,6 @@ export const Login = () => {
     try {
       e.preventDefault();
       await exitConsult($inputEmail.value, $inputPassword.value);
-      validatorUser((currentUser) => {
-        console.log(currentUser);
-      });
 
       surfing('/Wall');
     } catch (error) {

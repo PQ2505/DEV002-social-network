@@ -1,8 +1,12 @@
 // importamos la funcion que vamos a testear
 // eslint-disable-next-line import/no-unresolved
 import {
-  authGoogle, createUser, exitConsult,
+  authGoogle, createUser, exitConsult, 
 } from '../src/lib/auth.js';
+// eslint-disable-next-line import/no-unresolved
+import{
+  savePublic, deletePublic, updatePublic,
+} from '../src/lib/firestore.js'
 
 // primer mock de autenticacion
 jest.mock('../src/lib/firebase.js', () => ({ // aqui se accede a la libreria "JEST"
@@ -33,6 +37,11 @@ jest.mock('../src/lib/firebase.js', () => ({ // aqui se accede a la libreria "JE
   }),
 }));
 
+jest.mock('../src/lib/firestore.js', () => {
+
+})
+
+//se Mockea las funciones de Firestore
 describe('Se testea la función Auth', () => {
   it('signInWithEmailAndPassword debe devolver un email incorrecto', async () => {
     try {
@@ -79,3 +88,7 @@ describe('Se testea la función Auth', () => {
     }
   });
 });
+
+describe('Se testea la función SavePublic', () =>{
+  it()
+})

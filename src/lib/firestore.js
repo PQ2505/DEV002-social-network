@@ -18,22 +18,17 @@ import { app } from './firebase.js';
 
 const db = getFirestore(app);
 
-export const savePublic = async (coment, amountLikes, usersLikeArray) => {
-  try {
-    const docRef = await addDoc(collection(db, 'Publication'), { coment, amountLikes, usersLikeArray });
-    console.log(docRef.id);
-  } catch (error) {
-    console.log(error);
-  }
-};
+export const savePublic = (coment, amountLikes, usersLikeArray) => addDoc(collection(db, 'Publication'), { coment, amountLikes, usersLikeArray });
+
+ // get public es vigilada por onSnapshot en tiempo real para no refrescar la pagina
 // eslint-disable-next-line max-len
-export const getPublication = () => getDocs(collection(db, 'Publication'));
+export const getPublic = () => getDocs(collection(db, 'Publication'));
 
 export const unsub = (callBack) => onSnapshot(collection(db, 'Publication'), callBack);
 
-export const deleteComent = (id) => deleteDoc(doc(db, 'Publication', id));
+export const deletePublic = (id) => deleteDoc(doc(db, 'Publication', id));
 
-export const updatePost = (id, newPost) => updateDoc(doc(db, 'Publication', id), newPost);
+export const updatePublic = (id, newPost) => updateDoc(doc(db, 'Publication', id), newPost);
 
 export const getPublicationForId = (id) => getDoc(doc(db, 'Publication', id));
 

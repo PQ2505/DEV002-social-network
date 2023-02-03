@@ -1,8 +1,8 @@
 import {
   savePublic,
   unsub,
-  deleteComent,
-  updatePost,
+  deletePublic,
+  updatePublic,
   like,
   disLike,
   getPublicationForId,
@@ -122,11 +122,15 @@ export const Wall = () => {
   $imgWallCat.setAttribute("src", "img/gato.png");
   $imgWallCat.setAttribute("alt", "wallCat");
 
-  $formWall.addEventListener("submit", (e) => {
+//función para crear publicación
+  $formWall.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    savePublic( $inputPublication.value, 0 , []);
+    try{
+      await savePublic( $inputPublication.value, 0 , []);
     $formWall.reset();
+    }catch(error){
+      throw new Error('Error');
+    }
   });
 
   $btnSingOff.addEventListener("click", async () => {
@@ -134,6 +138,7 @@ export const Wall = () => {
     surfing("/");
   });
 
+  //creacion de tarjeta con el vigilador unsub
   unsub((querySnapshot) => {
     $containerPublication.innerHTML = "";
     querySnapshot.forEach((docs) => {
@@ -150,7 +155,6 @@ export const Wall = () => {
       const $inputReactionEdit = document.createElement("input");
       const $divReactionDelete = document.createElement("div");
       const $inputReactionDelete = document.createElement("input");
-      const countLike = 0;
 
       $containerPublication.appendChild($divPublicUser);
       $divPublicUser.appendChild($divPublicU);
@@ -199,7 +203,10 @@ export const Wall = () => {
       const btnDelete = $containerPublication.querySelectorAll(".inp_reactionDelete");
       btnDelete.forEach((btn) => {
         btn.addEventListener("click", (e) => {
-          deleteComent(e.target.dataset.id);
+          const deleteConfirm = confirm('Deseas eliminar éste Post?');
+          if(deleteConfirm){
+            deletePublic(e.target.dataset.id);
+          }
         });
       });
 
@@ -207,7 +214,7 @@ export const Wall = () => {
       btnEdit.forEach((btn) => {
         btn.addEventListener("click", async (e) => {
           const editComent = prompt("Update your coment:");
-          updatePost(e.target.dataset.id, { coment: editComent });
+          updatePublic(e.target.dataset.id, { coment: editComent });
         });
       });
 

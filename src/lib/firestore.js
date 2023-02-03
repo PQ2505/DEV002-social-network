@@ -4,6 +4,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  getDoc,
   onSnapshot,
   deleteDoc,
   updateDoc,
@@ -17,9 +18,9 @@ import { app } from './firebase.js';
 
 const db = getFirestore(app);
 
-export const savePublic = async (id, coment, like) => {
+export const savePublic = async (coment, amountLikes, usersLikeArray) => {
   try {
-    const docRef = await addDoc(collection(db, 'Publication'), {id, coment, like });
+    const docRef = await addDoc(collection(db, 'Publication'), { coment, amountLikes, usersLikeArray });
     console.log(docRef.id);
   } catch (error) {
     console.log(error);
@@ -34,26 +35,10 @@ export const deleteComent = (id) => deleteDoc(doc(db, 'Publication', id));
 
 export const updatePost = (id, newPost) => updateDoc(doc(db, 'Publication', id), newPost);
 
-export const like = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, array: arrayUnion(userLike)});
+export const getPublicationForId = (id) => getDoc(doc(db, 'Publication', id));
 
-export const disLike = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:+likes, array: arrayRemove(userLike)});
+export const like = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, usersLikeArray: arrayUnion(userLike)});
+
+export const disLike = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, usersLikeArray: arrayRemove(userLike)});
 
 
-
-
-
-// export const state = onAuthStateChanged(auth, (user) => {
-//   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    // const uid = user.uid;
-    // ...
-  // } else {
-    // User is signed out
-    // ...
-//   }
-// });
-
-// export const updatePost = (id) => updateDoc(doc(db, 'Publication', id));
-
-// export const q = query(collection(db, 'Publication'), orderBy('','desc'));

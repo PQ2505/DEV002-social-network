@@ -30,7 +30,6 @@ export const Wall = () => {
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
-  // console.log(user);
   // ---- HTML Semantico ----//
 
   $sectionW.appendChild($divContainerWall); // HIJO PRINCIPAL 1
@@ -96,7 +95,6 @@ export const Wall = () => {
   $formWall.setAttribute('class', 'formWall');
   $formWall.setAttribute('id', 'formWall');
 
-  // $inputPublication.setAttribute('type', 'text');
   $inputPublication.setAttribute('name', 'inp_publication');
   $inputPublication.setAttribute('class', 'inp_publication');
   $inputPublication.setAttribute('id', 'inp_idPublication');
@@ -118,15 +116,9 @@ export const Wall = () => {
   $imgWallCat.setAttribute('src', 'img/gato.png');
   $imgWallCat.setAttribute('alt', 'wallCat');
 
-  let arrayLikes = ['1'];
-
   $formWall.addEventListener('submit', (e) => {
     e.preventDefault();
    
-  //   array.push('uno');
-  //   savePublic($inputPublication.value, 'uiprueba', array);
-  //   $formWall.reset();
-  // });
 
   savePublic('1',$inputPublication.value,'1');
   $formWall.reset();
@@ -178,6 +170,7 @@ export const Wall = () => {
       $divReactions.setAttribute('class', 'reactions');
       $divReactionLikes.setAttribute('class', 'reactionsLikes');
       $iHeart.setAttribute('class', 'fa-regular fa-heart');
+      $iHeart.setAttribute('data-id', docs.id);
       $inputReactionLikes.setAttribute('type', 'submit');
       $inputReactionLikes.setAttribute('name', 'inp_reaction');
       $inputReactionLikes.setAttribute('class', 'inp_reaction');
@@ -198,17 +191,14 @@ export const Wall = () => {
       $inputReactionDelete.setAttribute('data-id', docs.id);
       $inputReactionDelete.setAttribute('value', 'Delete');
 
-      //     $inputReactionDelete.addEventListener('click', ({target:{dataset:{id}}}) => {
-      //     deleteComent(id);
-      // })
       const userId = user().uid;
       console.log(userId);
-      const btnLike = $containerPublication.querySelectorAll('inp_reaction');
-      btnLike.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          like(e.target.dataset.id, arrayLikes, userId);
-        });
-      });
+      // const btnLike = $containerPublication.querySelectorAll('inp_reaction');
+      // btnLike.forEach((btn) => {
+      //   btn.addEventListener('click', (e) => {
+      //     like(e.target.dataset.id, arrayLikes, userId);
+      //   });
+      // });
 
       const btnDelete = $containerPublication.querySelectorAll('.inp_reactionDelete');
       btnDelete.forEach((btn) => {
@@ -225,6 +215,20 @@ export const Wall = () => {
           updatePost(e.target.dataset.id, { coment: editComent });
         });
       });
+
+      const btnLike = $containerPublication.querySelectorAll('.fa-regular');
+      btnLike.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          const currentUserLike = user().uid;
+          console.log('Current User Like: ' + currentUserLike);
+          const idLikeButton = e.target.dataset.id;
+          console.log('Like Button: ' + idLikeButton);
+          
+          await like(idLikeButton, 1, currentUserLike);
+
+        });
+      });
+
     });
   });
 

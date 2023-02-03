@@ -34,9 +34,9 @@ export const deleteComent = (id) => deleteDoc(doc(db, 'Publication', id));
 
 export const updatePost = (id, newPost) => updateDoc(doc(db, 'Publication', id), newPost);
 
-export const like = (id, likes, Ulike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, array: arrayUnion(Ulike)});
+export const like = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, array: arrayUnion(userLike)});
 
-export const disLike = (id, likes, Ulike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, array: arrayRemove(Ulike)});
+export const disLike = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:+likes, array: arrayRemove(userLike)});
 
 
 

@@ -224,7 +224,6 @@ export const Wall = () => {
                 const likes = post.amountLikes + 1;
                 like(idLikeButton, likes, currentUserLike);
               } else {
-                console.log("Ingresò al else");
                 const likes = post.amountLikes - 1;
                 disLike(idLikeButton, likes, currentUserLike);
               }

@@ -96,7 +96,7 @@ export const Login = () => {
 
   $divContainerSpan.setAttribute('class', 'containerSpan');
   $spanOption.setAttribute('class', 'option');
-  $spanOption.textContent = 'Or sign up With';
+  $spanOption.textContent = 'Or sign in with';
 
   $divContainerRegister.setAttribute('class', 'ContainerReg');
 

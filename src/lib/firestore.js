@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import {
-  getFirestore,
+  db,
   collection,
   addDoc,
   getDocs,
@@ -13,14 +12,11 @@ import {
   arrayUnion,
 }
 // eslint-disable-next-line import/no-unresolved
-  from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-import { app } from './firebase.js';
-
-const db = getFirestore(app);
+  from './firebase.js';
 
 export const savePublic = (coment, amountLikes, usersLikeArray) => addDoc(collection(db, 'Publication'), { coment, amountLikes, usersLikeArray });
 
- // get public es vigilada por onSnapshot en tiempo real para no refrescar la pagina
+// get public es vigilada por onSnapshot en tiempo real para no refrescar la pagina
 // eslint-disable-next-line max-len
 export const getPublic = () => getDocs(collection(db, 'Publication'));
 
@@ -32,8 +28,6 @@ export const updatePublic = (id, newPost) => updateDoc(doc(db, 'Publication', id
 
 export const getPublicationForId = (id) => getDoc(doc(db, 'Publication', id));
 
-export const like = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, usersLikeArray: arrayUnion(userLike)});
+export const like = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), { amountLikes: likes, usersLikeArray: arrayUnion(userLike) });
 
-export const disLike = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), {amountLikes:likes, usersLikeArray: arrayRemove(userLike)});
-
-
+export const disLike = (id, likes, userLike) => updateDoc(doc(db, 'Publication', id), { amountLikes: likes, usersLikeArray: arrayRemove(userLike) });

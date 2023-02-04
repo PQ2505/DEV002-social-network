@@ -16,9 +16,8 @@ const createUser = (email, password) => createUserWithEmailAndPassword(auth, ema
 
 const signOff = () => signOut(auth);
 
-const user = () =>auth.currentUser;
-
+const user = () => auth.currentUser;
 
 export {
-  exitConsult, authGoogle, createUser, signOff, user
+  exitConsult, authGoogle, createUser, signOff, user,
 };

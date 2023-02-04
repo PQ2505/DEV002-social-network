@@ -112,7 +112,7 @@ export const Register = () => {
 
   $divContainerSpanF.setAttribute('class', 'containerSpan');
   $spanOptionF.setAttribute('class', 'option');
-  $spanOptionF.textContent = 'Or sign up With';
+  $spanOptionF.textContent = 'Or sign up with';
 
   $divContainerRegisterF.setAttribute('class', 'ContainerReg');
 

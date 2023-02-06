@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-cycle
-import { log } from 'async';
 import { exitConsult, authGoogle } from '../lib/auth.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';

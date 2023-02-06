@@ -115,12 +115,11 @@ export const Login = () => {
 
   $divForm.addEventListener('submit', async (e) => {
     try {
-      e.preventDefault();
+      e.preventDefault(); // Cancela el evento para no ejecutar la página
       await exitConsult($inputEmail.value, $inputPassword.value);
-
       surfing('/Wall');
     } catch (error) {
-      console.log(error.code, error.message);
+      throw new Error(error);
     }
   });
 
@@ -129,7 +128,7 @@ export const Login = () => {
       await authGoogle();
       surfing('/Wall');
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   });
 
@@ -138,4 +137,5 @@ export const Login = () => {
   });
 
   return $section;
+  // Renderizamos con el return (Pintamos)
 };

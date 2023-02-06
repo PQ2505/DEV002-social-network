@@ -1,6 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-// eslint-disable-next-line import/no-cycle
-// import { myFunction } from './lib/index.js';
 // eslint-disable-next-line import/no-cycle
 import { Login } from '../component/login.js';
 // eslint-disable-next-line import/no-cycle

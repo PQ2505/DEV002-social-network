@@ -1,7 +1,5 @@
-// Import the functions you need from the SDKs you need
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
-// Consultas firebase
 // eslint-disable-next-line import/no-unresolved
 import {
   getAuth,
@@ -27,6 +25,9 @@ import {
   doc,
   arrayRemove,
   arrayUnion,
+  Timestamp,
+  orderBy,
+  query,
 }
 // eslint-disable-next-line import/no-unresolved
   from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
@@ -58,4 +59,7 @@ export {
   doc,
   arrayRemove,
   arrayUnion,
+  Timestamp,
+  orderBy,
+  query,
 };

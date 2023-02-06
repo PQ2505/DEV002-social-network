@@ -228,7 +228,7 @@ export const Wall = () => {
           getPublicationForId(idLikeButton)
             .then((document) => {
               const post = document.data();
-              if (!post.usersLikeArray.includes(currentUserLike)) { // Agregar signo de admiración
+              if (!post.usersLikeArray.includes(currentUserLike)) {
                 const likes = post.amountLikes + 1;
                 like(idLikeButton, likes, currentUserLike);
               } else {

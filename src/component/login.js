@@ -72,11 +72,13 @@ export const Login = () => {
   $inputEmail.setAttribute('class', 'emailUser');
   $inputEmail.setAttribute('id', 'emailUserId');
   $inputEmail.setAttribute('placeHolder', 'example@gmail.com');
+  $inputEmail.setAttribute('required', '');
 
   $inputPassword.setAttribute('type', 'password');
   $inputPassword.setAttribute('class', 'passwordUser');
   $inputPassword.setAttribute('id', 'passwordUserId');
   $inputPassword.setAttribute('placeHolder', 'Password');
+  $inputPassword.setAttribute('required', '');
 
   $divContainerCat.setAttribute('class', 'ContainerCat');
 
@@ -119,7 +121,12 @@ export const Login = () => {
       await exitConsult($inputEmail.value, $inputPassword.value);
       surfing('/Wall');
     } catch (error) {
-      console.log(error);
+      if (error.code === 'auth/user-not-found') {
+        alert('User not found');
+      }
+      if (error.code === 'auth/wrong-password') {
+        alert('Incorrect password');
+      }
     }
   });
 
@@ -128,7 +135,7 @@ export const Login = () => {
       await authGoogle();
       surfing('/Wall');
     } catch (error) {
-      console.log(error);
+      alert('Google error');
     }
   });
 

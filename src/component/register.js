@@ -132,7 +132,7 @@ export const Register = () => {
       await authGoogle();
       surfing('/Wall');
     } catch (error) {
-      console.log(error);
+      alert('Google error');
     }
   });
 
@@ -142,7 +142,9 @@ export const Register = () => {
       await createUser($inputEmailF.value, $inputPasswordF.value);
       surfing('/Wall');
     } catch (error) {
-      console.log(error);
+      if (error.code === 'auth/weak-password') {
+        alert('Your password must contain six digits');
+      }
     }
   });
 

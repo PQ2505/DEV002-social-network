@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-cycle
+import { log } from 'async';
 import { exitConsult, authGoogle } from '../lib/auth.js';
 // eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
@@ -119,7 +120,7 @@ export const Login = () => {
       await exitConsult($inputEmail.value, $inputPassword.value);
       surfing('/Wall');
     } catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
   });
 
@@ -128,7 +129,7 @@ export const Login = () => {
       await authGoogle();
       surfing('/Wall');
     } catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
   });
 

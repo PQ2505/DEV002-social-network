@@ -129,7 +129,7 @@ export const Wall = () => {
       await savePublic($inputPublication.value, 0, []);
       $formWall.reset();
     } catch (error) {
-      throw new Error('Error');
+      console.log(error);
     }
   });
 

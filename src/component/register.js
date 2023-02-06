@@ -132,7 +132,7 @@ export const Register = () => {
       await authGoogle();
       surfing('/Wall');
     } catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
   });
 
@@ -142,7 +142,7 @@ export const Register = () => {
       await createUser($inputEmailF.value, $inputPasswordF.value);
       surfing('/Wall');
     } catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
   });
 

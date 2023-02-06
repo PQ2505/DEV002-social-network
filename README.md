@@ -9,10 +9,16 @@
 * [4. Qué problema resuelve el producto / para qué le servirá a estos usuarios](#4-problemas-resuelve)
 * [5. Prototipos](#5-prototipos)
 * [6. Historias de usuario](#6-Historias-de-usuario)
-* [7. Herramientas de elaboración](#6-Herramientas-de-elaboración)
+* [7. Herramientas de elaboración](#7-Herramientas-de-elaboración)
+* [8. Test de Usabilidad](#8-Test-de-usabilidad)
+* [8. Autoras](#8-Autoras)
 
 
 ***
+
+## **Sitio web** 
+
+[NEWME](https://social-network-009.netlify.app/)
 
 ## **1.Definición del producto**
 
@@ -40,11 +46,11 @@ Permitirá contar sus historias de vida o mostrar los cambios que le han traído
 
  **Mobile**
 
-![Prototipo Blanco y Negro Mobile](./img/prototipoBajaFidelidad0.1.jpeg)
+![Prototipo Blanco y Negro Mobile](./src/img/prototipoBajaFidelidad0.1.jpeg)
 
 **Desktop**
 
-![Prototipo Blanco y Negro Desktop](./img/PrototipoBajaFedelidad0.2.jpeg)
+![Prototipo Blanco y Negro Desktop](./src/img/PrototipoBajaFedelidad0.2.jpeg)
 
 
 ### **5.2 Alta Fidelidad **
@@ -53,28 +59,61 @@ Permitirá contar sus historias de vida o mostrar los cambios que le han traído
 
 Link figma: [MOBILE](https://www.figma.com/proto/EMobDkb3y8fidc9gCxUdXJ/Untitled?node-id=8%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A2)
 
-![Prototipo Alta Fidelidad Mobile](./img/PrototipoAltaFidelidad0.1.png)
+![Prototipo Alta Fidelidad Mobile](./src/img/PrototipoAltaFidelidad0.1.png)
 
 **Desktop**
 
 Link figma: [DESKTOP](https://www.figma.com/proto/EMobDkb3y8fidc9gCxUdXJ/Untitled?node-id=49%3A69&scaling=scale-down&page-id=49%3A70&starting-point-node-id=49%3A69
 )
-![Prototipo Alta Fidelidad Movil](./img/PrototipoAltaFidelidad0.2.png)
+![Prototipo Alta Fidelidad Movil](./src/img/PrototipoAltaFidelidad0.2.png)
 
 
 ### **5.3 DISEÑO FINAL PROYECTO**
 
 **Desktop**
 
-![Home](img/Home.png)
-![Login](img/Login.png)
-![Register](img/Register.png)
-![Wall](img/Wall.png)
+![Home](./src/img/Home.png)
+![Login](./src/img/Login.png)
+![Register](./src/img/Register.png)
+![Wall](./src/img/Wall.png)
 
 **Mobile**
 
-![HomeR](img/HomeR.png)
-![LoginR](img/LoginR.png)
-![RegisterR](img/RegisterR.png)
-![WallR](img/WallR.png)
+![HomeR](./src/img/HomeR.png)
+![LoginR](./src/img/LoginR.png)
+![RegisterR](./src/img/RegisterR.png)
+![WallR](./src/img/WallR.png)
+
+## **6. Historias de Usuario**
+
+Se utilizo la herramiento de GitHub projects [Ver aquí](https://github.com/users/PQ2505/projects/2) 
+
+## **7. Herramientas utilizadas**
+
+- JavaScript
+- Jest
+- Firebase
+- Git 
+- GitHub
+- Figma
+- CSS3
+- HTML5
+- Visual studio Code
+
+
+## **8. Test de Usabilidad**
+
+De los test de usabilidad descatacamos los siguientes comentarios:
+
+- Los colores son llamativos y acorde a la temática que estamos utilizando.
+- La red social es muy intuitiva.
+- Al estar en inglés aumenta el rango de acogida.
+- Al iniciar con el desarrollo combinabamos idiomas y nos hicieron la sugerencia de hacerlo en un solo idioma.
+
+## **9. Autoras**
+
+- Paola Quiroga
+- Sandra Ríos
+- Erika Ríos Suesca
+
 

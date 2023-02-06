@@ -11,7 +11,7 @@
 * [6. Historias de usuario](#6-Historias-de-usuario)
 * [7. Herramientas de elaboración](#7-Herramientas-de-elaboración)
 * [8. Test de Usabilidad](#8-Test-de-usabilidad)
-* [8. Autoras](#8-Autoras)
+* [9. Autoras](#9-Autoras)
 
 
 ***

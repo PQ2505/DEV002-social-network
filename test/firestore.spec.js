@@ -20,7 +20,20 @@ jest.mock('../src/lib/firebase.js', () => ({
   doc: jest.fn((publication, id) => ({ publication, id })),
 
   updateDoc: jest.fn((id, newPost) => ({
-    id: 'u1', newPost: 'PostEdit', ids: id, newPosts: newPost,
+    id: 'u1',
+    newPost: 'PostEdit',
+    ids: id,
+    newPosts: newPost,
+  })),
+
+  orderBy: jest.fn((date, desc) => ({
+    date,
+    desc,
+  })),
+
+  query: jest.fn((collection, orderBy) => ({
+    collection,
+    orderBy,
   })),
 }));
 

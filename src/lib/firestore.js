@@ -10,17 +10,27 @@ import {
   doc,
   arrayRemove,
   arrayUnion,
+  Timestamp,
+  orderBy,
+  query,
 }
 // eslint-disable-next-line import/no-unresolved
   from './firebase.js';
 
-export const savePublic = (coment, amountLikes, usersLikeArray) => addDoc(collection(db, 'Publication'), { coment, amountLikes, usersLikeArray });
+export const savePublic = (coment, amountLikes, usersLikeArray) => addDoc(collection(db, 'Publication'), {
+  coment,
+  amountLikes,
+  usersLikeArray,
+  date: Timestamp.fromDate(new Date()),
+});
 
 // get public es vigilada por onSnapshot en tiempo real para no refrescar la pagina
 // eslint-disable-next-line max-len
 export const getPublic = () => getDocs(collection(db, 'Publication'));
 
-export const unsub = (callBack) => onSnapshot(collection(db, 'Publication'), callBack);
+const postData = query(collection(db, 'Publication'), orderBy('date', 'desc'));
+
+export const unsub = (callBack) => onSnapshot(postData, callBack);
 
 export const deletePublic = (id) => deleteDoc(doc(db, 'Publication', id));
 

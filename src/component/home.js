@@ -43,4 +43,5 @@ export const Home = () => {
   });
 
   return $sectionHome;
+  // Renderizamos (dibujamos) la página con el return
 };

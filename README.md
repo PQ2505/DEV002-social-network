@@ -18,7 +18,7 @@
 
 ## **Sitio web** 
 
-[NEWME](https://social-network-009.netlify.app/)
+[NEWME](https://newme-change.netlify.app/)
 
 ## **1.Definición del producto**
 
@@ -103,7 +103,7 @@ Se utilizo la herramiento de GitHub projects [Ver aquí](https://github.com/user
 
 ## **8. Test de Usabilidad**
 
-De los test de usabilidad descatacamos los siguientes comentarios:
+De los test de usabilidad destacamos los siguientes comentarios:
 
 - Los colores son llamativos y acorde a la temática que estamos utilizando.
 - La red social es muy intuitiva.

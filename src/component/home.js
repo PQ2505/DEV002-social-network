@@ -26,7 +26,7 @@ export const Home = () => {
   $inputBtnClickHere.setAttribute('type', 'button');
   $inputBtnClickHere.setAttribute('id', 'btn_click');
   $inputBtnClickHere.setAttribute('value', 'CLICK HERE');
-
+ 
   $sectionHome
     .appendChild($divLogoContainer)
     .appendChild($figureLogo)
